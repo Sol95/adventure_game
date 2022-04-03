@@ -72,7 +72,7 @@ const textNodes = [
       {
         text: 'START',
         nextText: 2,
-      },
+      }
     ]
   },
   {
