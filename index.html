@@ -10,15 +10,47 @@
     <title>Text adventure game</title>
 </head>
 <body>
-    <div class="container">
-        <div id="text">Text</div>
-        <div id="option-buttons" class="btn-grid">
-            <button class="btn">Option 1</button>
-            <button class="btn">Option 2</button>
-            <button class="btn">Option 3</button>
-            <button class="btn">Option 4</button>
+    <div>
+        <!-- <div class="row"> -->
+            <div id="player-card" class="card" style="width: 18rem;">
+                <div class="card-body">
+                <h5 class="card-title">Inventory</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                <li id="gold-counter" class="list-group-item">Gold</li>
+                <li id="weapons" class="list-group-item">Weapons:
+                    <ul>
+                        <li hidden id="sword-inv">Sword</li>
+                        <li hidden id="shield-inv">Shield</li>
+                    </ul>
+                </li>
+                <li id="tools" class="list-group-item">Tools:
+                    <ul>
+                        <li hidden id="torch-inv">Torch</li>
+                    </ul>
+                </li>
+                <li  id="other" class="list-group-item">Other:
+                    <ul>
+                        <li hidden id="greenrocks-inv">Green Rocks</li>
+                    </ul>
+                </li>    
+                </ul>
+            </div> 
+    
+    
+
+        <div class="container">
+            <div id="text">Text</div>
+            <div id="option-buttons" class="btn-grid">
+                <button class="btn">Option 1</button>
+                <button class="btn">Option 2</button>
+                <button class="btn">Option 3</button>
+                <button class="btn">Option 4</button>
+            </div>
         </div>
-    </div>
+    <!-- </div> -->
+</div>
+
     
 </body>
 </html>

@@ -6,7 +6,7 @@
 body {
     padding: 0;
     margin: 0;
-    display: flex;
+    display: inline flex;
     justify-content: center;
     align-items: center;
     width: 100vw;
@@ -41,4 +41,9 @@ body {
 
 .btn:hover {
     border-color: black;
+}
+
+.card {
+    left: 10%;
+    margin-top: 1%;
 }

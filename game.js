@@ -2,12 +2,22 @@
 
 const textElement = document.getElementById('text');
 const optionButtonsElement = document.getElementById('option-buttons');
+const playerCard = document.getElementById('player-card');
+const goldCounter = document.getElementById('gold-counter');
+const weapons = document.getElementById('weapons');
+const swordInv = document.getElementById('sword-inv');
+const shieldInv = document.getElementById('shield-inv');
+const tools = document.getElementById('tools');
+const torchInv = document.getElementById('torch-inv');
+const other = document.getElementById('other');
+const greenRocksInv = document.getElementById('greenrocks-inv');
 
 let state = {};
 
 function startGame() {
   state = {gold: 0};
   showTextNode(1);
+  showState();
 
 }
 
@@ -45,13 +55,11 @@ function selectOption(option) {
   if (nextTextNodeId <= 0) {
     return startGame()
   }
-  state = Object.assign(state, option.setState);
+  setState(option);
   showTextNode(nextTextNodeId);
-  if (option.hasOwnProperty('addGold')) {
-    state.gold += option.addGold;
-  } else if (option.hasOwnProperty('removeGold')) {
-    state.gold -= option.removeGold;
-  }
+  showState();
+
+
 
 }
 
@@ -60,6 +68,41 @@ function selectOption(option) {
 
 function showOption(option) {
   return option.requiredState == null || option.requiredState(state);
+}
+
+function setState(option) {
+  state = Object.assign(state, option.setState);
+
+  if (option.hasOwnProperty('addGold')) {
+    state.gold += option.addGold;
+  } else if (option.hasOwnProperty('removeGold')) {
+    state.gold -= option.removeGold;
+  }
+}
+
+function showState() {
+  goldCounter.innerText = 'Gold: ' + state.gold;
+  if (state.sword === true) {
+    swordInv.hidden = false;
+  } else {
+    swordInv.hidden = true; 
+  }
+  if (state.shield === true) {
+    shieldInv.hidden = false;
+  } else {
+    shieldInv.hidden = true; 
+  }
+  if (state.torch === true) {
+    torchInv.hidden = false;
+  } else {
+    torchInv.hidden = true; 
+  }
+  if (state.greenRocks === true) {
+    greenRocksInv.hidden = false;
+  } else {
+    greenRocksInv.hidden = true; 
+  }
+
 }
 
 
